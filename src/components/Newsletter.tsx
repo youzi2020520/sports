@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Send, ArrowRightIcon } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { useState } from 'react';
 
 export function Newsletter() {

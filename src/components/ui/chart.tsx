@@ -18,6 +18,17 @@ export type ChartConfig = {
   );
 };
 
+// Define payload type for Recharts data
+export interface ChartPayload {
+  dataKey: string;
+  name: string;
+  value: number | string;
+  payload: Record<string, any>;
+  color?: string;
+  fill?: string;
+  graphicalItemId: string;
+}
+
 type ChartContextProps = {
   config: ChartConfig;
 };
@@ -125,6 +136,8 @@ function ChartTooltipContent({
     indicator?: "line" | "dot" | "dashed";
     nameKey?: string;
     labelKey?: string;
+    payload?: ChartPayload[];
+    label?: React.ReactNode;
   }) {
   const { config } = useChart();
 
@@ -193,7 +206,7 @@ function ChartTooltipContent({
               )}
             >
               {formatter && item?.value !== undefined && item.name ? (
-                formatter(item.value, item.name, item, index, item.payload)
+                formatter(item.value, item.name, item, index, payload)
               ) : (
                 <>
                   {itemConfig?.icon ? (
@@ -257,9 +270,10 @@ function ChartLegendContent({
   verticalAlign = "bottom",
   nameKey,
 }: React.ComponentProps<"div"> &
-  Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+  Pick<RechartsPrimitive.LegendProps, "verticalAlign"> & {
     hideIcon?: boolean;
     nameKey?: string;
+    payload?: ChartPayload[];
   }) {
   const { config } = useChart();
 
@@ -307,20 +321,10 @@ function ChartLegendContent({
 // Helper to extract item config from a payload.
 function getPayloadConfigFromPayload(
   config: ChartConfig,
-  payload: unknown,
+  payload: ChartPayload,
   key: string,
 ) {
-  if (typeof payload !== "object" || payload === null) {
-    return undefined;
-  }
-
-  const payloadPayload =
-    "payload" in payload &&
-    typeof payload.payload === "object" &&
-    payload.payload !== null
-      ? payload.payload
-      : undefined;
-
+  const payloadPayload = payload.payload;
   let configLabelKey: string = key;
 
   if (
