@@ -43,7 +43,7 @@ export function Newsletter() {
           >
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
               <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-              <span className="text-sm tracking-widest">加入运动力场</span>
+              <span className="text-sm tracking-widest">加入三叶草运动力场</span>
             </div>
 
             <h2 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-6">

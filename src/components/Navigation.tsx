@@ -38,20 +38,22 @@ export function Navigation() {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="relative cursor-pointer"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-500 via-orange-500 to-yellow-500 rounded-lg flex items-center justify-center">
-                <div className="w-6 h-6 border-2 border-white rounded transform rotate-45"></div>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="relative cursor-pointer"
+            >
+              <div className="flex items-center gap-3">
+                <img 
+                  src="/favicon.svg" 
+                  alt="三叶草运动力场 Logo" 
+                  className="w-10 h-10"
+                />
+                <div>
+                  <div className="text-xl tracking-tight">三叶草运动力场</div>
+                  <div className="text-xs text-gray-500 tracking-wider">运动装备专家</div>
+                </div>
               </div>
-              <div>
-                <div className="text-xl tracking-tight">运动力场</div>
-                <div className="text-[10px] text-gray-500 tracking-widest">SPORTFORCE</div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-8">

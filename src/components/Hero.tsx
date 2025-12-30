@@ -51,7 +51,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-6 py-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-full mb-8"
             >
               <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-              <span className="text-sm tracking-widest">2025 春季新品上市</span>
+              <span className="text-sm tracking-widest">2026 春季新品上市</span>
             </motion.div>
 
             {/* Main Title */}
